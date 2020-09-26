@@ -1,0 +1,12 @@
+Dobrý den,
+
+níže naleznete informace o mé rezervaci:
+
+===
+Tour id: "42"
+Location: "Krkonoše"
+Person: "Lukáš Litvan"
+===
+
+S pozdravem,
+Lukáš Litvan

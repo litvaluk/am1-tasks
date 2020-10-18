@@ -1,6 +1,6 @@
 # Homework
 
-[HW1 - TBD!](01/index.md)
+[HW1](01/index.md)
 [HW2](02/index.md)
 [HW3 - TBD!](03/index.md)
 [HW4 - TBD!](04/index.md)

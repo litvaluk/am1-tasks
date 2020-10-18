@@ -1,9 +1,6 @@
 package cz.cvut.fit.niam1;
 
-import netscape.javascript.JSObject;
 import org.json.JSONObject;
-
-import java.util.Arrays;
 
 public class Transformer  {
 

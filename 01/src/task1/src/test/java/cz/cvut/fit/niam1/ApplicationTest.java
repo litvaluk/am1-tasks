@@ -7,12 +7,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.ResourceUtils;
 
-import java.io.File;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.Path;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -36,11 +35,15 @@ public class ApplicationTest {
     public void test() throws Exception {
         String path = "transform/";
 
-        String testInput1 = new String(Files.readAllBytes(Paths.get("/Users/litvaluk/Documents/School/AM1/litvaluk/01/src/task1/src/test/java/cz/cvut/fit/niam1/test_input_1.txt")));
-        String expectedOutput1 = new String(Files.readAllBytes(Paths.get("/Users/litvaluk/Documents/School/AM1/litvaluk/01/src/task1/src/test/java/cz/cvut/fit/niam1/expected_output_1.json")));
+        Path pathInput1 = ResourceUtils.getFile(this.getClass().getResource("/test_input_1.txt")).toPath();
+        Path pathInput2 = ResourceUtils.getFile(this.getClass().getResource("/test_input_2.txt")).toPath();
+        Path pathExpectedOutput1 = ResourceUtils.getFile(this.getClass().getResource("/expected_output_1.json")).toPath();
+        Path pathExpectedOutput2 = ResourceUtils.getFile(this.getClass().getResource("/expected_output_2.json")).toPath();
 
-        String testInput2 = new String(Files.readAllBytes(Paths.get("/Users/litvaluk/Documents/School/AM1/litvaluk/01/src/task1/src/test/java/cz/cvut/fit/niam1/test_input_2.txt")));
-        String expectedOutput2 = new String(Files.readAllBytes(Paths.get("/Users/litvaluk/Documents/School/AM1/litvaluk/01/src/task1/src/test/java/cz/cvut/fit/niam1/expected_output_2.json")));
+        String testInput1 = new String(Files.readAllBytes(pathInput1));
+        String testInput2 = new String(Files.readAllBytes(pathInput2));
+        String expectedOutput1 = new String(Files.readAllBytes(pathExpectedOutput1));
+        String expectedOutput2 = new String(Files.readAllBytes(pathExpectedOutput2));
 
         ResponseEntity<String> response1 = template.postForEntity(base.toString() + path, testInput1, String.class);
         ResponseEntity<String> response2 = template.postForEntity(base.toString() + path, testInput2, String.class);

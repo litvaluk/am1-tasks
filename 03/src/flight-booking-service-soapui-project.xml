@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="60f496d1-debb-4b6a-9957-2844efbc14ea" activeEnvironment="Default" name="flight-booking-service" resourceRoot="" soapui-version="5.6.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="43a1070f-49f5-4b63-898c-0f3c469a271f" wsaVersion="NONE" name="BookingsPortSoap11" type="wsdl" bindingName="{https://lukaslitvan.com/flight-booking-service/}BookingsPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/bookings.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/bookings.wsdl"><con:part><con:url>http://localhost:8080/ws/bookings.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="https://lukaslitvan.com/flight-booking-service/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="https://lukaslitvan.com/flight-booking-service/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="https://lukaslitvan.com/flight-booking-service/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="https://lukaslitvan.com/flight-booking-service/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <!--==========================================================================================-->
+      <xs:element name="getBookingsRequest">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getBookingsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="booking" type="tns:booking"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteBookingRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteBookingResponse">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addBookingRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="booking" type="tns:booking"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addBookingResponse">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateBookingRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+            <xs:element name="booking" type="tns:booking"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateBookingResponse">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <!--==========================================================================================-->
+      <xs:complexType name="booking">
+        <xs:sequence>
+          <xs:element name="id" type="xs:int"/>
+          <xs:element name="passenger" type="tns:passenger"/>
+          <xs:element name="departureDate" type="xs:date"/>
+          <xs:element name="departureAirport" type="xs:string"/>
+          <xs:element name="arrivalDate" type="xs:date"/>
+          <xs:element name="arrivalAirport" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="passenger">
+        <xs:sequence>
+          <xs:element name="id"/>
+          <xs:element name="firstName"/>
+          <xs:element name="lastName"/>
+          <xs:element name="nationalId"/>
+        </xs:sequence>
+      </xs:complexType>
+      <!--==========================================================================================-->
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getBookingsRequest">
+    <wsdl:part element="tns:getBookingsRequest" name="getBookingsRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteBookingResponse">
+    <wsdl:part element="tns:deleteBookingResponse" name="deleteBookingResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateBookingResponse">
+    <wsdl:part element="tns:updateBookingResponse" name="updateBookingResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addBookingResponse">
+    <wsdl:part element="tns:addBookingResponse" name="addBookingResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addBookingRequest">
+    <wsdl:part element="tns:addBookingRequest" name="addBookingRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateBookingRequest">
+    <wsdl:part element="tns:updateBookingRequest" name="updateBookingRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteBookingRequest">
+    <wsdl:part element="tns:deleteBookingRequest" name="deleteBookingRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBookingsResponse">
+    <wsdl:part element="tns:getBookingsResponse" name="getBookingsResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="BookingsPort">
+    <wsdl:operation name="getBookings">
+      <wsdl:input message="tns:getBookingsRequest" name="getBookingsRequest"></wsdl:input>
+      <wsdl:output message="tns:getBookingsResponse" name="getBookingsResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteBooking">
+      <wsdl:input message="tns:deleteBookingRequest" name="deleteBookingRequest"></wsdl:input>
+      <wsdl:output message="tns:deleteBookingResponse" name="deleteBookingResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateBooking">
+      <wsdl:input message="tns:updateBookingRequest" name="updateBookingRequest"></wsdl:input>
+      <wsdl:output message="tns:updateBookingResponse" name="updateBookingResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addBooking">
+      <wsdl:input message="tns:addBookingRequest" name="addBookingRequest"></wsdl:input>
+      <wsdl:output message="tns:addBookingResponse" name="addBookingResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BookingsPortSoap11" type="tns:BookingsPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getBookings">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getBookingsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBookingsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteBooking">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="deleteBookingRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteBookingResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateBooking">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="updateBookingRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateBookingResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addBooking">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="addBookingRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addBookingResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BookingsPortService">
+    <wsdl:port binding="tns:BookingsPortSoap11" name="BookingsPortSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws</con:endpoint></con:endpoints><con:operation id="7f10ca41-611b-4487-a5e7-c63e95edd0f7" isOneWay="false" action="" name="addBooking" bindingOperationName="addBooking" type="Request-Response" outputName="addBookingResponse" inputName="addBookingRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ca237ba4-4610-4439-acd3-0a7403486a71" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:flig="https://lukaslitvan.com/flight-booking-service/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <flig:addBookingRequest>
+         <flig:booking>
+            <flig:id>1</flig:id>
+            <flig:passenger>
+               <flig:id>1</flig:id>
+               <flig:firstName>Lukáš</flig:firstName>
+               <flig:lastName>Litvan</flig:lastName>
+               <flig:nationalId>1234567890</flig:nationalId>
+            </flig:passenger>
+            <flig:departureDate>1.1.2020</flig:departureDate>
+            <flig:departureAirport>PRG</flig:departureAirport>
+            <flig:arrivalDate>LAX</flig:arrivalDate>
+            <flig:arrivalAirport>1.1.2020</flig:arrivalAirport>
+         </flig:booking>
+      </flig:addBookingRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="https://lukaslitvan.com/flight-booking-service/BookingsPort/addBookingRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="2e69a7ac-d474-4982-ba2e-6d8e65f0e4b2" isOneWay="false" action="" name="deleteBooking" bindingOperationName="deleteBooking" type="Request-Response" outputName="deleteBookingResponse" inputName="deleteBookingRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="905eb9fb-b0ad-4d09-9177-689c36624bc0" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:flig="https://lukaslitvan.com/flight-booking-service/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <flig:deleteBookingRequest>
+         <flig:id>2</flig:id>
+      </flig:deleteBookingRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="https://lukaslitvan.com/flight-booking-service/BookingsPort/deleteBookingRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="a4346119-346d-42ce-88e5-fa71c53f9ba9" isOneWay="false" action="" name="getBookings" bindingOperationName="getBookings" type="Request-Response" outputName="getBookingsResponse" inputName="getBookingsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7c8ea50e-689f-4387-b52a-0c2a16afb7c8" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:flig="https://lukaslitvan.com/flight-booking-service/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <flig:getBookingsRequest/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="https://lukaslitvan.com/flight-booking-service/BookingsPort/getBookingsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="6aad25e7-5d43-416e-a7f2-0b08417bda32" isOneWay="false" action="" name="updateBooking" bindingOperationName="updateBooking" type="Request-Response" outputName="updateBookingResponse" inputName="updateBookingRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5c134b20-4109-4c37-8bea-81f6c63943b0" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:flig="https://lukaslitvan.com/flight-booking-service/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <flig:updateBookingRequest>
+         <flig:id>1</flig:id>
+         <flig:booking>
+            <flig:id>2</flig:id>
+            <flig:passenger>
+               <flig:id>2</flig:id>
+               <flig:firstName>James</flig:firstName>
+               <flig:lastName>Bond</flig:lastName>
+               <flig:nationalId>007</flig:nationalId>
+            </flig:passenger>
+            <flig:departureDate>6.11.2020</flig:departureDate>
+            <flig:departureAirport>LHR</flig:departureAirport>
+            <flig:arrivalDate>6.11.2020</flig:arrivalDate>
+            <flig:arrivalAirport>JFK</flig:arrivalAirport>
+         </flig:booking>
+      </flig:updateBookingRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="https://lukaslitvan.com/flight-booking-service/BookingsPort/updateBookingRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="2072caa8-bc3d-4742-8d74-122ec9bb3c1c" name="TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="cbdcf95b-fdc3-4e5f-ad32-3c71c474e033" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetBookings" searchProperties="true"><con:settings/><con:testStep type="request" name="getBookings" id="afa65517-f0a9-401a-8852-6ea526ed46eb"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BookingsPortSoap11</con:interface><con:operation>getBookings</con:operation><con:request name="getBookings" id="867e488e-e71c-48d6-ac4e-1d8ad0ff2ccd"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:flig="https://lukaslitvan.com/flight-booking-service/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <flig:getBookingsRequest/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="4566a763-8e35-4caf-a639-9b070af141d4" name="Contains"><con:configuration><token><![CDATA[<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns2:getBookingsResponse xmlns:ns2="https://lukaslitvan.com/flight-booking-service/"/>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="b6b35249-a530-43b8-8707-91c5382d88dd"><con:configuration/></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="5e558718-8e33-4584-b439-e5277b0d4c67" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddBooking" searchProperties="true"><con:settings/><con:testStep type="request" name="getBookings" id="8d6e836e-b43c-4ba5-aed8-ac2b9de7ce4c"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BookingsPortSoap11</con:interface><con:operation>getBookings</con:operation><con:request name="getBookings" id="9b61713b-335a-4e9f-8acb-e6ac7e9e622f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:flig="https://lukaslitvan.com/flight-booking-service/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <flig:getBookingsRequest/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="c57a0e3b-04bb-4f8d-ab0c-29d5dfcbc07c" name="Contains"><con:configuration><token><![CDATA[<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns2:getBookingsResponse xmlns:ns2="https://lukaslitvan.com/flight-booking-service/"/>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="addBooking" id="095e0846-f196-4065-9223-690bcea474b2"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BookingsPortSoap11</con:interface><con:operation>addBooking</con:operation><con:request name="addBooking" id="18d7388b-1309-4023-bbf6-83dd5c2e4905"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:flig="https://lukaslitvan.com/flight-booking-service/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <flig:addBookingRequest>
+         <flig:booking>
+            <flig:id>1</flig:id>
+            <flig:passenger>
+               <flig:id>1</flig:id>
+               <flig:firstName>James</flig:firstName>
+               <flig:lastName>Bond</flig:lastName>
+               <flig:nationalId>007</flig:nationalId>
+            </flig:passenger>
+            <flig:departureDate>1.11.2020</flig:departureDate>
+            <flig:departureAirport>LHR</flig:departureAirport>
+            <flig:arrivalDate>1.11.2020</flig:arrivalDate>
+            <flig:arrivalAirport>JFK</flig:arrivalAirport>
+         </flig:booking>
+      </flig:addBookingRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="b71eaa80-20d9-46c6-9a09-7ded7a80c6d9" name="Contains"><con:configuration><token><![CDATA[<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns2:addBookingResponse xmlns:ns2="https://lukaslitvan.com/flight-booking-service/"/>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getBookingsAfterAdding" id="8278a697-e31c-461d-a86c-b877fdb014b7"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BookingsPortSoap11</con:interface><con:operation>getBookings</con:operation><con:request name="getBookingsAfterAdding" id="9b61713b-335a-4e9f-8acb-e6ac7e9e622f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:flig="https://lukaslitvan.com/flight-booking-service/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <flig:getBookingsRequest/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="c57a0e3b-04bb-4f8d-ab0c-29d5dfcbc07c" name="Contains"><con:configuration><token><![CDATA[<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns2:getBookingsResponse xmlns:ns2="https://lukaslitvan.com/flight-booking-service/">
+         <ns2:booking>
+            <ns2:id>1</ns2:id>
+            <ns2:passenger>
+               <ns2:id xmlns:flig="https://lukaslitvan.com/flight-booking-service/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">1</ns2:id>
+               <ns2:firstName xmlns:flig="https://lukaslitvan.com/flight-booking-service/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">James</ns2:firstName>
+               <ns2:lastName xmlns:flig="https://lukaslitvan.com/flight-booking-service/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">Bond</ns2:lastName>
+               <ns2:nationalId xmlns:flig="https://lukaslitvan.com/flight-booking-service/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">007</ns2:nationalId>
+            </ns2:passenger>
+            <ns2:departureAirport>LHR</ns2:departureAirport>
+            <ns2:arrivalAirport>JFK</ns2:arrivalAirport>
+         </ns2:booking>
+      </ns2:getBookingsResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="6a2c3ee6-d779-4186-b6fc-daeefa0bf500" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UpdateBooking" searchProperties="true"><con:settings/><con:testStep type="request" name="getBookings" id="17f8a287-54e7-44f8-a67a-62149fd8cbcc"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BookingsPortSoap11</con:interface><con:operation>getBookings</con:operation><con:request name="getBookings" id="bc650b68-0ca8-4ba8-b6de-0680c59df115"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:flig="https://lukaslitvan.com/flight-booking-service/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <flig:getBookingsRequest/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="8db53750-a5d6-4f94-8a20-726d7066fd70" name="Contains"><con:configuration><token><![CDATA[<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns2:getBookingsResponse xmlns:ns2="https://lukaslitvan.com/flight-booking-service/">
+         <ns2:booking>
+            <ns2:id>1</ns2:id>
+            <ns2:passenger>
+               <ns2:id xmlns:flig="https://lukaslitvan.com/flight-booking-service/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">1</ns2:id>
+               <ns2:firstName xmlns:flig="https://lukaslitvan.com/flight-booking-service/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">James</ns2:firstName>
+               <ns2:lastName xmlns:flig="https://lukaslitvan.com/flight-booking-service/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">Bond</ns2:lastName>
+               <ns2:nationalId xmlns:flig="https://lukaslitvan.com/flight-booking-service/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">007</ns2:nationalId>
+            </ns2:passenger>
+            <ns2:departureAirport>LHR</ns2:departureAirport>
+            <ns2:arrivalAirport>JFK</ns2:arrivalAirport>
+         </ns2:booking>
+      </ns2:getBookingsResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="updateBooking" id="464e5e23-b3ce-4c43-9d9e-b21059a2dae4"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BookingsPortSoap11</con:interface><con:operation>updateBooking</con:operation><con:request name="updateBooking" id="fa3b3204-b410-495f-9fcb-7c05bccaed70"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:flig="https://lukaslitvan.com/flight-booking-service/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <flig:updateBookingRequest>
+         <flig:id>1</flig:id>
+         <flig:booking>
+            <flig:id>2</flig:id>
+            <flig:passenger>
+               <flig:id>2</flig:id>
+               <flig:firstName>Chuck</flig:firstName>
+               <flig:lastName>Norris</flig:lastName>
+               <flig:nationalId>42</flig:nationalId>
+            </flig:passenger>
+            <flig:departureDate>24.12.2020</flig:departureDate>
+            <flig:departureAirport>PRG</flig:departureAirport>
+            <flig:arrivalDate>24.12.2020</flig:arrivalDate>
+            <flig:arrivalAirport>PRG</flig:arrivalAirport>
+         </flig:booking>
+      </flig:updateBookingRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="9df682a7-2bce-4d6c-8bb7-cd338f61b537" name="Contains"><con:configuration><token><![CDATA[<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns2:updateBookingResponse xmlns:ns2="https://lukaslitvan.com/flight-booking-service/"/>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getBookingsAfterUpdate" id="854b0266-ae96-454e-8f30-0633128827fc"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BookingsPortSoap11</con:interface><con:operation>getBookings</con:operation><con:request name="getBookingsAfterUpdate" id="75e624d2-bdf2-4faa-a382-96b60602628d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:flig="https://lukaslitvan.com/flight-booking-service/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <flig:getBookingsRequest/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="ca87db33-60ef-4d1f-bacb-4083d67449c2" name="Contains"><con:configuration><token><![CDATA[<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns2:getBookingsResponse xmlns:ns2="https://lukaslitvan.com/flight-booking-service/">
+         <ns2:booking>
+            <ns2:id>2</ns2:id>
+            <ns2:passenger>
+               <ns2:id xmlns:flig="https://lukaslitvan.com/flight-booking-service/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">2</ns2:id>
+               <ns2:firstName xmlns:flig="https://lukaslitvan.com/flight-booking-service/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">Chuck</ns2:firstName>
+               <ns2:lastName xmlns:flig="https://lukaslitvan.com/flight-booking-service/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">Norris</ns2:lastName>
+               <ns2:nationalId xmlns:flig="https://lukaslitvan.com/flight-booking-service/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">42</ns2:nationalId>
+            </ns2:passenger>
+            <ns2:departureAirport>PRG</ns2:departureAirport>
+            <ns2:arrivalAirport>PRG</ns2:arrivalAirport>
+         </ns2:booking>
+      </ns2:getBookingsResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="cc0d7a8c-9e9b-4dc6-bd85-63cc927e281d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DeleteBooking" searchProperties="true"><con:settings/><con:testStep type="request" name="getBookings" id="4cce71e1-6c18-4a97-8dc9-08bb7609ab4a"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BookingsPortSoap11</con:interface><con:operation>getBookings</con:operation><con:request name="getBookings" id="5f9cb97e-9c8a-47e6-b5e6-350d31a9af02"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:flig="https://lukaslitvan.com/flight-booking-service/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <flig:getBookingsRequest/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="c94f66d0-8e44-467e-9a93-3eb98a086d75" name="Contains"><con:configuration><token><![CDATA[<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns2:getBookingsResponse xmlns:ns2="https://lukaslitvan.com/flight-booking-service/">
+         <ns2:booking>
+            <ns2:id>2</ns2:id>
+            <ns2:passenger>
+               <ns2:id xmlns:flig="https://lukaslitvan.com/flight-booking-service/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">2</ns2:id>
+               <ns2:firstName xmlns:flig="https://lukaslitvan.com/flight-booking-service/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">Chuck</ns2:firstName>
+               <ns2:lastName xmlns:flig="https://lukaslitvan.com/flight-booking-service/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">Norris</ns2:lastName>
+               <ns2:nationalId xmlns:flig="https://lukaslitvan.com/flight-booking-service/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">42</ns2:nationalId>
+            </ns2:passenger>
+            <ns2:departureAirport>PRG</ns2:departureAirport>
+            <ns2:arrivalAirport>PRG</ns2:arrivalAirport>
+         </ns2:booking>
+      </ns2:getBookingsResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="deleteBooking" id="c605230a-a8d0-4f5c-9990-cac1900d4cb5"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BookingsPortSoap11</con:interface><con:operation>deleteBooking</con:operation><con:request name="deleteBooking" id="eddb004d-cc76-48be-97dd-dbbc816b3fd8"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:flig="https://lukaslitvan.com/flight-booking-service/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <flig:deleteBookingRequest>
+         <flig:id>2</flig:id>
+      </flig:deleteBookingRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="186593d5-3e3f-43d3-a443-1cecbe822d32" name="Contains"><con:configuration><token><![CDATA[<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns2:deleteBookingResponse xmlns:ns2="https://lukaslitvan.com/flight-booking-service/"/>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getBookingsAfterDeletion" id="a75536de-d7ce-41de-bc48-a456076a0724"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>BookingsPortSoap11</con:interface><con:operation>getBookings</con:operation><con:request name="getBookingsAfterDeletion" id="8b6f935f-78bd-4c43-956a-07e69bd4fd1e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:flig="https://lukaslitvan.com/flight-booking-service/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <flig:getBookingsRequest/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains" id="47b0277b-d88e-4fd4-9beb-711a00d00559" name="Contains"><con:configuration><token><![CDATA[<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns2:getBookingsResponse xmlns:ns2="https://lukaslitvan.com/flight-booking-service/"/>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>]]></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

@@ -3,12 +3,7 @@ package cz.litvaluk.fit.am1.flightbookingservice;
 import https.lukaslitvan_com.flight_booking_service.Booking;
 import org.springframework.stereotype.Component;
 
-import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.XMLGregorianCalendar;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 @Component
@@ -32,12 +27,6 @@ public class Repository {
         if (bookings.removeIf(b -> b.getId() == id)) {
             bookings.add(booking);
         }
-    }
-
-    private XMLGregorianCalendar getDate(Date date) throws DatatypeConfigurationException {
-        final GregorianCalendar now = new GregorianCalendar();
-        now.setTime(date);
-        return DatatypeFactory.newInstance().newXMLGregorianCalendar(now);
     }
 
 }

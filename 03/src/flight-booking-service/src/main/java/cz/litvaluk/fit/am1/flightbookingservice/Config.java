@@ -25,17 +25,17 @@ public class Config extends WsConfigurerAdapter {
     }
 
     @Bean(name = "bookings")
-    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema paymentsSchema) {
+    public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema bookingsSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("BookingsPort");
         wsdl11Definition.setLocationUri("/ws");
         wsdl11Definition.setTargetNamespace("https://lukaslitvan.com/flight-booking-service/");
-        wsdl11Definition.setSchema(paymentsSchema);
+        wsdl11Definition.setSchema(bookingsSchema);
         return wsdl11Definition;
     }
 
     @Bean
-    public XsdSchema paymentsSchema() {
+    public XsdSchema bookingsSchema() {
         return new SimpleXsdSchema(new ClassPathResource("bookings.xsd"));
     }
 

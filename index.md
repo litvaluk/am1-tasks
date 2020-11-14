@@ -2,8 +2,8 @@
 
 [HW1](01/index.md)  
 [HW2](02/index.md)  
-[HW3 - TBD!](03/index.md)  
-[HW4 - TBD!](04/index.md)  
+[HW3](03/index.md)  
+[HW4](04/index.md)  
 [HW5 - TBD!](05/index.md)  
 [HW6 - TBD!](06/index.md)  
 [HW7 - TBD!](07/index.md)  

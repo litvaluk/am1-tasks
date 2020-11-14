@@ -34,6 +34,9 @@ public class Endpoint {
         String cardOwner = request.getPayment().getCardOwner();
         if (client.validateCard(cardNumber, cardOwner).isResult()) {
             repository.addPayment(request.getPayment());
+            response.setAdded(true);
+        } else {
+            response.setAdded(false);
         }
         return response;
     }

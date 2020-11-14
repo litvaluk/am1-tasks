@@ -27,7 +27,9 @@
 
     <xs:element name="addPaymentResponse">
         <xs:complexType>
-            <xs:sequence/>
+            <xs:sequence>
+                <xs:element name="added" type="xs:boolean"/>
+            </xs:sequence>
         </xs:complexType>
     </xs:element>
 

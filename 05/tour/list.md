@@ -2,7 +2,7 @@
 
 Show all tours.
 
-**URL** : `/tour/`
+**URL** : `/tour`
 
 **Method** : `GET`
 

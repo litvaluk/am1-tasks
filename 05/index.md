@@ -12,6 +12,9 @@ is running on `http://t-a.org/`
 * [Show tour](tour/get.md) : `GET /tour/{id}`
 * [Update tour](tour/put.md) : `PUT /tour/{id}`
 * [Delete tour](tour/delete.md) : `DELETE /tour/{id}`
+* [Show tours for given customer](tour/customer.md) : `GET /tour/byCustomer`
+* [Show tours for given location](tour/location.md) : `GET /tour/byLocation`
+* [Show tours for given country](tour/country.md) : `GET /tour/byCountry`
 
 ### Customer related
 
@@ -28,6 +31,7 @@ is running on `http://t-a.org/`
 * [Show location](location/get.md) : `GET /location/{id}`
 * [Update location](location/put.md) : `PUT /location/{id}`
 * [Delete location](location/delete.md) : `DELETE /location/{id}`
+* [Show locations for given country](location/country.md) : `GET /location/byCountry`
 
 ### Country related
 

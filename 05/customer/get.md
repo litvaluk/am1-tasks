@@ -21,7 +21,18 @@ Show a specific customer.
   "id": 3,
   "firstName": "James",
   "lastName": "Bond",
-  "yearOfBirth": "1960"
+  "yearOfBirth": "1960",
+  "_links": {
+    "self": {
+      "href": "http://t-a.cz/customer/3"
+    },
+    "PUT": {
+      "href": "http://t-a.cz/customer/3"
+    },
+    "DELETE": {
+      "href": "http://t-a.cz/customer/3"
+    }
+  }
 }
 ```
 ## Error Response

@@ -24,13 +24,35 @@ Show a specific tour.
       "id": 3,
       "firstName": "James",
       "lastName": "Bond",
-      "yearOfBirth": "1960"
+      "yearOfBirth": "1960",
+      "_links": {
+        "GET": {
+          "href": "http://t-a.cz/customer/3"
+        },
+        "PUT": {
+          "href": "http://t-a.cz/customer/3"
+        },
+        "DELETE": {
+          "href": "http://t-a.cz/customer/3"
+        }
+      }
     },
     {
       "id": 5,
       "firstName": "Gordon",
       "lastName": "Ramsay",
-      "yearOfBirth": "1968"
+      "yearOfBirth": "1968",
+      "_links": {
+        "GET": {
+          "href": "http://t-a.cz/customer/5"
+        },
+        "PUT": {
+          "href": "http://t-a.cz/customer/5"
+        },
+        "DELETE": {
+          "href": "http://t-a.cz/customer/5"
+        }
+      }
     }
   ],
   "location": {
@@ -38,7 +60,40 @@ Show a specific tour.
     "name": "Death Valley",
     "country": {
       "id": 1,
-      "name": "USA"
+      "name": "USA",
+      "_links": {
+        "GET": {
+          "href": "http://t-a.cz/country/1"
+        },
+        "PUT": {
+          "href": "http://t-a.cz/country/1"
+        },
+        "DELETE": {
+          "href": "http://t-a.cz/country/1"
+        }
+      }
+    },
+    "_links": {
+      "GET": {
+        "href": "http://t-a.cz/location/2"
+      },
+      "PUT": {
+        "href": "http://t-a.cz/location/2"
+      },
+      "DELETE": {
+        "href": "http://t-a.cz/location/2"
+      }
+    }
+  },
+  "_links": {
+    "self": {
+      "href": "http://t-a.cz/tour/1"
+    },
+    "PUT": {
+      "href": "http://t-a.cz/tour/1"
+    },
+    "DELETE": {
+      "href": "http://t-a.cz/tour/1"
     }
   }
 }

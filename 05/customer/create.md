@@ -43,7 +43,18 @@ Provide first name, last name and year of birth of the customer to be created.
   "id": 3,
   "name": "James",
   "name": "Bond",
-  "yearOfBirth": 1960
+  "yearOfBirth": 1960,
+  "_links": {
+    "GET": {
+      "href": "http://t-a.cz/customer/3"
+    },
+    "PUT": {
+      "href": "http://t-a.cz/customer/3"
+    },
+    "DELETE": {
+      "href": "http://t-a.cz/customer/3"
+    }
+  }
 }
 ```
 

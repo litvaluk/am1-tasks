@@ -22,7 +22,7 @@ Update the location.
 
 ```json
 {
-  "id": "5",
+  "id": 5,
   "name": "Varadero",
   "countryId": 2
 }
@@ -38,9 +38,34 @@ Update the location.
 
 ```json
 {
-  "id": "5",
+  "id": 5,
   "name": "Varadero",
-  "countryId": 2
+  "countryId": {
+    "id": 2,
+    "name": "Cuba",
+    "_links": {
+      "GET": {
+        "href": "http://t-a.cz/country/2"
+      },
+      "PUT": {
+        "href": "http://t-a.cz/country/2"
+      },
+      "DELETE": {
+        "href": "http://t-a.cz/country/2"
+      }
+    }
+  },
+  "_links": {
+    "GET": {
+      "href": "http://t-a.cz/location/5"
+    },
+    "PUT": {
+      "href": "http://t-a.cz/location/5"
+    },
+    "DELETE": {
+      "href": "http://t-a.cz/location/5"
+    }
+  }
 }
 ```
 
@@ -64,7 +89,36 @@ Update the location.
 **Content example**
 
 ```json
-{}
+{
+  "id": 5,
+  "name": "Death Valley",
+  "countryId": {
+    "id": 1,
+    "name": "USA",
+    "_links": {
+      "GET": {
+        "href": "http://t-a.cz/country/1"
+      },
+      "PUT": {
+        "href": "http://t-a.cz/country/1"
+      },
+      "DELETE": {
+        "href": "http://t-a.cz/country/1"
+      }
+    }
+  },
+  "_links": {
+    "GET": {
+      "href": "http://t-a.cz/location/5"
+    },
+    "PUT": {
+      "href": "http://t-a.cz/location/5"
+    },
+    "DELETE": {
+      "href": "http://t-a.cz/location/5"
+    }
+  }
+}
 ```
 
 ### OR

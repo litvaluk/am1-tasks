@@ -37,7 +37,18 @@ Update the country.
 ```json
 {
   "id": 4,
-  "name": "Spain"
+  "name": "Spain",
+  "_links": {
+    "GET": {
+      "href": "http://t-a.cz/country/4"
+    },
+    "PUT": {
+      "href": "http://t-a.cz/country/4"
+    },
+    "DELETE": {
+      "href": "http://t-a.cz/country/4"
+    }
+  }
 }
 ```
 
@@ -61,5 +72,19 @@ Update the country.
 **Content example**
 
 ```json
-{}
+{
+  "id": 4,
+  "name": "China",
+  "_links": {
+    "GET": {
+      "href": "http://t-a.cz/country/4"
+    },
+    "PUT": {
+      "href": "http://t-a.cz/country/4"
+    },
+    "DELETE": {
+      "href": "http://t-a.cz/country/4"
+    }
+  }
+}
 ```

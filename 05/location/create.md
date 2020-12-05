@@ -43,6 +43,17 @@ Provide name of the location and id of the country.
   "country": {
     "id": 1,
     "name": "USA"
+  },
+  "_links": {
+    "GET": {
+      "href": "http://t-a.cz/location/2"
+    },
+    "PUT": {
+      "href": "http://t-a.cz/location/2"
+    },
+    "DELETE": {
+      "href": "http://t-a.cz/location/2"
+    }
   }
 }
 ```

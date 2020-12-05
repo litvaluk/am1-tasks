@@ -60,6 +60,17 @@ Provide name of the tour, id of the location and ids of the customers.
       "id": 1,
       "name": "USA"
     }
+  },
+  "_links": {
+    "GET": {
+      "href": "http://t-a.cz/tour/1"
+    },
+    "PUT": {
+      "href": "http://t-a.cz/tour/1"
+    },
+    "DELETE": {
+      "href": "http://t-a.cz/tour/1"
+    }
   }
 }
 ```

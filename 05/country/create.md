@@ -37,7 +37,18 @@ Provide name of country to be created.
 ```json
 {
   "id": 4,
-  "name": "China"
+  "name": "China",
+  "_links": {
+    "GET": {
+      "href": "http://t-a.cz/country/4"
+    },
+    "PUT": {
+      "href": "http://t-a.cz/country/4"
+    },
+    "DELETE": {
+      "href": "http://t-a.cz/country/4"
+    }
+  }
 }
 ```
 

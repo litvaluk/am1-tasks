@@ -24,9 +24,9 @@ Update the customer.
 ```json
 {
   "id": "5",
-  "firstName": "Gordon",
-  "lastName": "Ramsay",
-  "yearOfBirth": "1968"
+  "firstName": "Jamie",
+  "lastName": "Oliver",
+  "yearOfBirth": "1971"
 }
 ```
 
@@ -41,9 +41,20 @@ Update the customer.
 ```json
 {
   "id": "5",
-  "firstName": "Gordon",
-  "lastName": "Ramsay",
-  "yearOfBirth": "1968"
+  "firstName": "Jamie",
+  "lastName": "Oliver",
+  "yearOfBirth": "1971",
+  "_links": {
+    "self": {
+      "href": "http://t-a.cz/customer/5"
+    },
+    "PUT": {
+      "href": "http://t-a.cz/customer/5"
+    },
+    "DELETE": {
+      "href": "http://t-a.cz/customer/5"
+    }
+  }
 }
 ```
 
@@ -67,5 +78,21 @@ Update the customer.
 **Content example**
 
 ```json
-{}
+{
+  "id": "5",
+  "firstName": "Elon",
+  "lastName": "Musk",
+  "yearOfBirth": "1975",
+  "_links": {
+    "GET": {
+      "href": "http://t-a.cz/customer/5"
+    },
+    "PUT": {
+      "href": "http://t-a.cz/customer/5"
+    },
+    "DELETE": {
+      "href": "http://t-a.cz/customer/5"
+    }
+  }
+}
 ```

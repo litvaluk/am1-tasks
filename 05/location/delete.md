@@ -42,18 +42,64 @@ Delete a specific location.
 [
   {
     "id": 2,
-    "customer": {
-      "id": 5,
-      "firstName": "Gordon",
-      "lastName": "Ramsay",
-      "yearOfBirth": "1968"
-    },
+    "customers": [
+      {
+        "id": 3,
+        "firstName": "James",
+        "lastName": "Bond",
+        "yearOfBirth": "1960",
+        "_links": {
+          "GET": {
+            "href": "http://t-a.cz/customer/3"
+          },
+          "PUT": {
+            "href": "http://t-a.cz/customer/3"
+          },
+          "DELETE": {
+            "href": "http://t-a.cz/customer/3"
+          }
+        }
+      }
+    ],
     "location": {
       "id": 5,
       "name": "Varadero",
       "country": {
         "id": 2,
-        "name": "Cuba"
+        "name": "Cuba",
+        "_links": {
+          "GET": {
+            "href": "http://t-a.cz/country/2"
+          },
+          "PUT": {
+            "href": "http://t-a.cz/country/2"
+          },
+          "DELETE": {
+            "href": "http://t-a.cz/country/2"
+          }
+        }
+      },
+      "_links": {
+        "GET": {
+          "href": "http://t-a.cz/location/5"
+        },
+        "PUT": {
+          "href": "http://t-a.cz/location/5"
+        },
+        "DELETE": {
+          "href": "http://t-a.cz/location/5"
+        }
+      }
+    },
+    "_links": {
+      "self": {
+        "href": "http://t-a.cz/tour/1"
+      },
+      "PUT": {
+        "href": "http://t-a.cz/tour/1"
+      },
+      "DELETE": {
+        "href": "http://t-a.cz/tour/1"
       }
     }
   }

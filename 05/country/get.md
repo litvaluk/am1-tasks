@@ -18,8 +18,19 @@ Show a specific tour.
 
 ```json
 {
-  "id": 4,
-  "name": "USA"
+  "id": 1,
+  "name": "USA",
+  "_links": {
+    "self": {
+      "href": "http://t-a.cz/country/1"
+    },
+    "PUT": {
+      "href": "http://t-a.cz/country/1"
+    },
+    "DELETE": {
+      "href": "http://t-a.cz/country/1"
+    }
+  }
 }
 ```
 ## Error Response

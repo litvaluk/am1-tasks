@@ -45,7 +45,29 @@ Delete a specific country.
     "name": "Death Valley",
     "country": {
       "id": 1,
-      "name": "USA"
+      "name": "USA",
+      "_links": {
+        "GET": {
+          "href": "http://t-a.cz/country/1"
+        },
+        "PUT": {
+          "href": "http://t-a.cz/country/1"
+        },
+        "DELETE": {
+          "href": "http://t-a.cz/country/1"
+        }
+      }
+    },
+    "_links": {
+      "GET": {
+        "href": "http://t-a.cz/location/2"
+      },
+      "PUT": {
+        "href": "http://t-a.cz/location/2"
+      },
+      "DELETE": {
+        "href": "http://t-a.cz/location/2"
+      }
     }
   }
 ]

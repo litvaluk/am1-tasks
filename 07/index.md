@@ -65,9 +65,41 @@ curl --location --request GET 'http://localhost:8080/tour'
 ```
 200 OK
 ```
-1) List tours with parameter eTagValidation="weak" (returns header `ETag` with weak ETag)
+3) List tours with parameter eTagValidation="weak" (returns header `ETag` with weak ETag)
 ```sh
 curl --location --request GET 'http://localhost:8080/tour?eTagValidation=weak'
+```
+```json
+{
+    "_embedded": {
+        "tourList": [
+            {
+                "id": 1,
+                "name": "Prague",
+                "customers": [
+                    "Chuck Norris",
+                    "Elon Musk"
+                ],
+                "_links": {
+                    "GET": {
+                        "href": "http://localhost:8080/1"
+                    },
+                    "DELETE": {
+                        "href": "http://localhost:8080/1"
+                    }
+                }
+            }
+        ]
+    },
+    "_links": {
+        "self": {
+            "href": "http://localhost:8080"
+        }
+    }
+}
+```
+```
+200 OK
 ```
 4) List tours with If-Modified-Since (date after last modified)
 ```sh
@@ -80,7 +112,7 @@ NO CONTENT
 ```
 304 Not Modified
 ```
-1) List tours with If-None-Match (matching strong ETag)
+5) List tours with If-None-Match (matching strong ETag)
 ```sh
 curl --location --request GET 'http://localhost:8080/tour' \
 --header 'If-None-Match: "-1911418363"'
@@ -91,7 +123,7 @@ NO CONTENT
 ```
 304 Not Modified
 ```
-7) List tours with If-None-Match header and parameter eTagValidation="weak" (matching weak ETag)
+6) List tours with If-None-Match header and parameter eTagValidation="weak" (matching weak ETag)
 ```sh
 curl --location --request GET 'http://localhost:8080/tour?eTagValidation=weak' \
 --header 'If-None-Match: "1-Prague"'
@@ -102,7 +134,7 @@ NO CONTENT
 ```
 304 Not Modified
 ```
-9) Add another tour
+7) Add another tour
 ```sh
 curl --location --request POST 'http://localhost:8080/tour' \
 --header 'Content-Type: application/json' \
@@ -118,7 +150,7 @@ NO CONTENT
 ```
 201 Created
 ```
-11) List tours (if `If-Modified-Since` header is a date before the date, when the list was modified or the `If-None-Match` does not match the weak/strong ETag, it should list the tours)
+8) List tours (if `If-Modified-Since` header is a date before the date, when the list was modified or the `If-None-Match` does not match the weak/strong ETag, it should list the tours)
 ```sh
 curl --location --request GET 'http://localhost:8080/tour' \
 --header 'If-Modified-Since: Sun, 06 Dec 2020 21:10:00 GMT'

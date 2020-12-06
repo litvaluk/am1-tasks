@@ -4,6 +4,7 @@ Where full URLs are provided in responses they will be rendered as if service
 is running on `http://t-a.org/`
 
 ## Endpoints
+All endpoints produce `application/hal+json` and requests with `POST`/`PUT` method consume `application/json`.
 
 ### Tour related
 

@@ -69,7 +69,7 @@ curl --location --request GET 'http://localhost:8080/tour'
 ```sh
 curl --location --request GET 'http://localhost:8080/tour?eTagValidation=weak'
 ```
-4) List tours with If-Modified-Since (date before last modified)
+4) List tours with If-Modified-Since (date after last modified)
 ```sh
 curl --location --request GET 'http://localhost:8080/tour' \
 --header 'If-Modified-Since: Sun, 06 Dec 2020 21:10:00 GMT'

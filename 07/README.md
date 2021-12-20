@@ -1,4 +1,4 @@
-# Conditional GET tours REST service
+# Task 7 - Conditional GET tours REST service
 
 Simple REST service for adding/listing/deleting tours. It emphasizes the cacheability using `If-Modified-Since`/`Last-Modified` and `If-None-Match`/`ETag` headers (`Cache-Control` max-age = 10 seconds). 
 

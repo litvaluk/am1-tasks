@@ -1,4 +1,4 @@
-# Homework 2
+# Task 2
 
 ## Telnet 1
 ```console

@@ -1,4 +1,4 @@
-# Flight booking service
+# Task 3 - Flight booking service
 Simple SOAP/WSDL Web Service for management of flight bookings written in Java (Spring).
 
 ### WSDL

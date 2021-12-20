@@ -1,4 +1,4 @@
-# Card payment service
+# Task 4 - Card payment service
 Simple SOAP/WSDL Web Service for management of card payments written in Java (Spring). The service itself is using an external SOAP/WSDL Web Service to validate the card number and owner available at `http://147.32.233.18:8888/NI-AM1-CardValidation/ws/card.wsdl`.
 When running locally (port `8080`), the `WSDL` for the service is available at `http://localhost:8080/ws/payments.wsdl`.
 

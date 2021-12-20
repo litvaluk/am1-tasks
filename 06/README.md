@@ -1,4 +1,4 @@
-# Asynchronous tour delete REST service
+# Task 6 - Asynchronous tour delete REST service
 
 Simple REST service that simulates an asynchronous tour deletion. When the `DELETE /tour/{id}` is called, it creates an entry in tour delete requests. All `waiting` requests are being processed every 20 second (changes the request status to `processed` and actually deletes the tour).
 

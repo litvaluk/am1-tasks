@@ -1,4 +1,4 @@
-# Trip Service (Load Balancer)
+# Task 9 - Trip Service (Load Balancer)
 
 Simple REST service for listing trips. When the `GET` request at `/trips` is initiated, the service chooses among the available endpoints. The availability of the endpoints is updated every 10 seconds or when an error occurs on a first try (the target endpoint may get unavailable between the availability checks).
 
